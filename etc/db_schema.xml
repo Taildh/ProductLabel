@@ -1,0 +1,18 @@
+<?xml version="1.2"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="productlabel" resource="default" engine="innodb" comment="Product Labels Table">
+        <column name="id" xsi:type="smallint" padding="6" unsigned="false" nullable="false" identity="true" comment="ID"/>
+        <column name="name" xsi:type="varchar" length="64" comment="Name" />
+        <column name="image" xsi:type="varchar" length="255" comment="Image" default="default.jpg"/>
+        <column name="status" xsi:type="smallint" length="10" default="0" comment="Status"/>
+        <column name="width" xsi:type="smallint" length="10" default="30" comment="Image Width"/>
+        <column name="height" xsi:type="smallint" length="10" default="30" comment="Image Heigh"/>
+        <column name="font_size" xsi:type="smallint" length="10" default="30" comment="Font Size Text"/>
+        <column name="color" xsi:type="varchar" length="10" default="#A52A2A" comment="Color Text"/>
+        <column name="label_text" xsi:type="varchar" length="64" comment="Label Text"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

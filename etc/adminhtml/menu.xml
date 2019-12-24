@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Dtn_ProductLabel::label"
+             title="Product Label"
+             module="Dtn_ProductLabel"
+             sortOrder="10"
+             action="productlabel/label/index"
+             parent="Magento_Catalog::catalog"
+             resource="Dtn_ProductLabel::label" />
+    </menu>
+</config>
