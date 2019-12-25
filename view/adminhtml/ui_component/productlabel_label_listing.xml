@@ -68,43 +68,6 @@
                 </settings>
             </filterSelect>
         </filters>
-        <!--        <massaction name="listing_massaction">-->
-        <!--            <action name="delete">-->
-        <!--                <settings>-->
-        <!--                    <confirm>-->
-        <!--                        <message translate="true">Are you sure you want to delete selected items?</message>-->
-        <!--                        <title translate="true">Delete items</title>-->
-        <!--                    </confirm>-->
-        <!--                    <url path="cms/page/massDelete"/>-->
-        <!--                    <type>delete</type>-->
-        <!--                    <label translate="true">Delete</label>-->
-        <!--                </settings>-->
-        <!--            </action>-->
-        <!--            <action name="disable">-->
-        <!--                <settings>-->
-        <!--                    <url path="cms/page/massDisable"/>-->
-        <!--                    <type>disable</type>-->
-        <!--                    <label translate="true">Disable</label>-->
-        <!--                </settings>-->
-        <!--            </action>-->
-        <!--            <action name="enable">-->
-        <!--                <settings>-->
-        <!--                    <url path="cms/page/massEnable"/>-->
-        <!--                    <type>enable</type>-->
-        <!--                    <label translate="true">Enable</label>-->
-        <!--                </settings>-->
-        <!--            </action>-->
-        <!--            <action name="edit">-->
-        <!--                <settings>-->
-        <!--                    <callback>-->
-        <!--                        <target>editSelected</target>-->
-        <!--                        <provider>cms_page_listing.cms_page_listing.cms_page_columns_editor</provider>-->
-        <!--                    </callback>-->
-        <!--                    <type>edit</type>-->
-        <!--                    <label translate="true">Edit</label>-->
-        <!--                </settings>-->
-        <!--            </action>-->
-        <!--        </massaction>-->
         <paging name="listing_paging"/>
     </listingToolbar>
     <columns name="productlabel_label_columns">
@@ -187,6 +150,18 @@
             <settings>
                 <filter>textRange</filter>
                 <label translate="true">Label Height</label>
+            </settings>
+        </column>
+        <column name="font_size">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Font Size Text</label>
+            </settings>
+        </column>
+        <column name="color">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Color Text</label>
             </settings>
         </column>
         <column name="label_text">

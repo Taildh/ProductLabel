@@ -10,7 +10,10 @@ $currentDate = $block->getCurrentDate();
 $_helper = $this->helper('Magento\Catalog\Helper\Output');
 ?>
 <?php if (!$_productCollection->count()): ?>
-    <div class="message info empty"><div><?= /* @escapeNotVerified */ __('We can\'t find products matching the selection.') ?></div></div>
+    <div class="message info empty">
+        <div><?= /* @escapeNotVerified */
+            __('We can\'t find products matching the selection.') ?></div>
+    </div>
 <?php else: ?>
     <?= $block->getToolbarHtml() ?>
     <?= $block->getAdditionalHtml() ?>
@@ -30,13 +33,17 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
      * Position for actions regarding image size changing in vde if needed
      */
     $pos = $block->getPositioned();
+
     ?>
-    <div class="products wrapper <?= /* @escapeNotVerified */ $viewMode ?> products-<?= /* @escapeNotVerified */ $viewMode ?>">
+    <div class="products wrapper <?= /* @escapeNotVerified */
+    $viewMode ?> products-<?= /* @escapeNotVerified */
+    $viewMode ?>">
         <ol class="products list items product-items">
             <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
             <?php foreach ($_productCollection as $_product): ?>
                 <li class="item product product-item">
-                    <div class="product-item-info" data-container="product-<?= /* @escapeNotVerified */ $viewMode ?>">
+                    <div class="product-item-info" data-container="product-<?= /* @escapeNotVerified */
+                    $viewMode ?>">
                         <?php
                         $productImage = $block->getImage($_product, $imageDisplayArea);
                         if ($pos != null) {
@@ -45,15 +52,18 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                         }
                         ?>
                         <?php // Product Image ?>
-                        <?php if ($_product->getSpecialPrice() && $currentDate>$_product->getSpecialFromDate() && $currentDate<$_product->getSpecialToDate()): ?>
+                        <?php if ($_product->getSpecialPrice() && $currentDate > $_product->getSpecialFromDate() && $currentDate < $_product->getSpecialToDate()): ?>
+                            <?php  $percentOff =  round(($_product->getSpecialPrice() / $_product->getPrice()) * 100);?>
                             <?php foreach ($labels as $label): ?>
-                                <p></p>
-                                <img src="<?php echo $block->getUrlImage().$label->getImage();?>"
-                                     width="<?= $label->getWidth();?>"; height="<?= $label->getHeight();?>"/>
-                                <p style="color:<?= $label->getColor();?>; font-size: <?= $label->getFont_size();?>px"><?=round(($_product->getSpecialPrice()/$_product->getPrice())*100 )."%"; ?></p>
+                                <div class="abcde" style="position: relative; right: 0px;">
+                                    <img src="<?php echo $block->getUrlImage() . $label->getImage(); ?>"
+                                         width="<?= $label->getWidth(); ?>" ; height="<?= $label->getHeight(); ?>"/>
+                                    <p style="position: absolute; top:23px;left: 17px; z-index: auto;color: <?= $label->getColor(); ?>;font-size: <?= $label->getFont_size();?>px; "><?= $percentOff."%";?></p>
+                                </div>
                             <?php endforeach; ?>
                         <?php endif ?>
-                        <a href="<?= /* @escapeNotVerified */ $_product->getProductUrl() ?>" class="product photo product-item-photo" tabindex="-1">
+                        <a href="<?= /* @escapeNotVerified */
+                        $_product->getProductUrl() ?>" class="product photo product-item-photo" tabindex="-1">
                             <?= $productImage->toHtml() ?>
                         </a>
                         <div class="product details product-item-details">
@@ -62,12 +72,15 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                             ?>
                             <strong class="product name product-item-name">
                                 <a class="product-item-link"
-                                   href="<?= /* @escapeNotVerified */ $_product->getProductUrl() ?>">
-                                    <?= /* @escapeNotVerified */ $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
+                                   href="<?= /* @escapeNotVerified */
+                                   $_product->getProductUrl() ?>">
+                                    <?= /* @escapeNotVerified */
+                                    $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
                                 </a>
                             </strong>
                             <?= $block->getReviewsSummaryHtml($_product, $templateType) ?>
-                            <?= /* @escapeNotVerified */ $block->getProductPrice($_product) ?>
+                            <?= /* @escapeNotVerified */
+                            $block->getProductPrice($_product) ?>
                             <?= $block->getProductDetailsHtml($_product) ?>
                         </div>
                     </div>
@@ -81,10 +94,12 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
         {
             "[data-role=tocart-form], .form.map.checkout": {
                 "catalogAddToCart": {
-                    "product_sku": "<?= /* @NoEscape */ $_product->getSku() ?>"
+                    "product_sku": "<?= /* @NoEscape */
+            $_product->getSku() ?>"
                 }
             }
         }
+
         </script>
     <?php endif; ?>
 <?php endif; ?>

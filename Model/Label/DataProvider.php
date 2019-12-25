@@ -60,10 +60,10 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
         foreach ($items as $label) {
             $this->loadedData[$label->getId()] = $label->getData();
             if ($label->getImage()) {
-                $m['image'][0]['name'] = $label->getImage();
-                $m['image'][0]['url'] = $this->getMediaUrl().$label->getImage();
+                $image['image'][0]['name'] = $label->getImage();
+                $image['image'][0]['url'] = $this->getMediaUrl().$label->getImage();
                 $fullData = $this->loadedData;
-                $this->loadedData[$label->getId()] = array_merge($fullData[$label->getId()], $m);
+                $this->loadedData[$label->getId()] = array_merge($fullData[$label->getId()], $image);
             }
         }
         $data = $this->dataPersistor->get('dtn_productlabel_label');
