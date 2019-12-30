@@ -52,16 +52,20 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                         }
                         ?>
                         <?php // Product Image ?>
-                        <?php if ($_product->getSpecialPrice() && $currentDate > $_product->getSpecialFromDate() && $currentDate < $_product->getSpecialToDate()): ?>
-                            <?php  $percentOff =  round(($_product->getSpecialPrice() / $_product->getPrice()) * 100);?>
-                            <?php foreach ($labels as $label): ?>
-                                <div class="abcde" style="position: relative; right: 0px;">
-                                    <img src="<?php echo $block->getUrlImage() . $label->getImage(); ?>"
-                                         width="<?= $label->getWidth(); ?>" ; height="<?= $label->getHeight(); ?>"/>
-                                    <p style="position: absolute; top:23px;left: 17px; z-index: auto;color: <?= $label->getColor(); ?>;font-size: <?= $label->getFont_size();?>px; "><?= $percentOff."%";?></p>
-                                </div>
-                            <?php endforeach; ?>
-                        <?php endif ?>
+                        <div class="showLabel"><?php if ($_product->getSpecialPrice() && strtotime($currentDate) > strtotime($_product->getSpecialFromDate()) && strtotime($currentDate) < strtotime($_product->getSpecialToDate()) ): ?>
+                            <?php echo $currentDate ." crDate";
+                                    echo $_product->getSpecialFromDate() . " frDate";
+                                    echo $_product->getSpecialToDate() ." toDate" ; ?>
+                                <?php  $percentOff =  round(($_product->getSpecialPrice() / $_product->getPrice()) * 100);?>
+                                <?php foreach ($labels as $label): ?>
+                                    <div style="position: relative; right: 0px;">
+                                        <img src="<?php echo $block->getUrlImage() . $label->getImage(); ?>"
+                                             width="<?= $label->getWidth(); ?>" ; height="<?= $label->getHeight(); ?>"/>
+                                        <p style="position: absolute; top:23px;left: 17px; z-index: auto;color: <?= $label->getColor(); ?>;font-size: <?= $label->getFont_size();?>px; "><?= $percentOff."%";?></p>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php endif ?>
+                        </div>
                         <a href="<?= /* @escapeNotVerified */
                         $_product->getProductUrl() ?>" class="product photo product-item-photo" tabindex="-1">
                             <?= $productImage->toHtml() ?>
